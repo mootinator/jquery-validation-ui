@@ -50,9 +50,9 @@ grails.project.dependency.resolution = {
 			excludes "webxml"
 			export = false
 		}
-		compile(":webxml:1.4.1") {
-			export = false
-		}
+		//compile(":webxml:1.4.1") {
+		//	export = false
+		//}
 		build(":new-doc:0.3.2") {
 			export = false
 			excludes "xom"
