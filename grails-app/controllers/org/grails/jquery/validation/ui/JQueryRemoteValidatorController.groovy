@@ -47,7 +47,7 @@ class JQueryRemoteValidatorController {
 			propertyValue = params[params.property]
 		} else {
       bindData(validatableInstance, params, [include: [params.property]])
-	    propertyValue = validatableInstance."${params.property}"		
+	    propertyValue = validatableInstance."${params.property}"
 		}
 		
 		constrainedProperty.validate(validatableInstance, propertyValue, errors)
@@ -59,8 +59,11 @@ class JQueryRemoteValidatorController {
 		if (fieldError && fieldError.code.indexOf(params.constraint) > -1) {
 			// if constraint is known then render false (use default message), 
 			// otherwise render custom message.
-			render params.constraint ? "false" : """{"message":"${message(error: errors.getFieldError(params.property))}"}"""
-		} else {
+            String foo = message(error: errors.getFieldError(params.property))
+			render (params.constraint) ? "false" : """{"message":"${message(error: errors.getFieldError(params.property))}"}"""
+        } else if(fieldError) {
+            render """{"message":"${message(error: errors.getFieldError(params.property))}"}"""
+        } else {
 			render "true"
 		}
 	}
