@@ -1,2 +1,3 @@
 1. Configuration support for tooltip style.
 2. Customize scaffolding templates to support the new style of validation message
+3. Remove this message.
